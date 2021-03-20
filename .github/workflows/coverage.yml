@@ -54,7 +54,6 @@ jobs:
           POSTGRES_USER: rails_github_actions
           POSTGRES_PASSWORD: postgres
         run: |
-          cp config/database.yml config/database.yml
           RAILS_ENV=test bundle exec rake db:setup
 
       - name: Run tests
