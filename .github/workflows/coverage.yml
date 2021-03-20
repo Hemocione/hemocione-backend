@@ -3,7 +3,7 @@ on: push
 
 jobs:
   verify:
-    name: Build
+    name: Update Test Coverage
     runs-on: ubuntu-latest
 
     services:
@@ -54,7 +54,7 @@ jobs:
           POSTGRES_USER: rails_github_actions
           POSTGRES_PASSWORD: postgres
         run: |
-          cp config/database.ci.yml config/database.yml
+          cp config/database.yml config/database.yml
           RAILS_ENV=test bundle exec rake db:setup
 
       - name: Run tests
