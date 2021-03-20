@@ -22,10 +22,10 @@ gem 'omniauth', '~> 1.9.0'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'rspec-rails', '~> 4.0.2'
   gem 'rubocop', '0.93.1'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'rspec-rails', '~> 4.0.2'
 end
 
 group :development do
