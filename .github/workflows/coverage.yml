@@ -23,7 +23,7 @@ jobs:
           --health-retries=10
 
       mongo_db:
-        image: mongo_db:4.4.4
+        image: mongo:4.4.4
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: rootpassword
