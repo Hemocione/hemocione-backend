@@ -48,6 +48,7 @@ jobs:
 
       - name: Setup test database
         env:
+          DATABASE_URL: mysql2://user:changeme@localhost:3306/hemocione
           RAILS_ENV: test
           MYSQL_ROOT_PASSWORD: changeme
           MYSQL_DATABASE: hemocione
