@@ -49,12 +49,12 @@ jobs:
 
       - name: Setup test database
         env:
-          DATABASE_URL: mysql2://user:changeme@maria_db:3306/hemocione
           RAILS_ENV: test
           MYSQL_ROOT_PASSWORD: changeme
           MYSQL_DATABASE: hemocione
           MYSQL_USER: user
           MYSQL_PASSWORD: changeme
+          DB_PORT: ${{ job.services.maria_db.ports[3306] }}
         run: |
           bundle exec rake db:setup
 
