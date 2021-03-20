@@ -59,6 +59,12 @@ jobs:
           cp config/database.ci.yml config/database.yml
           bundle exec rake db:setup
 
+    - name: Setup Code Climate test-reporter
+      run: |
+        curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+        ./cc-test-reporter before-build
+
       - name: Run tests
         env:
           MYSQL_ROOT_PASSWORD: changeme
@@ -67,3 +73,8 @@ jobs:
           MYSQL_PASSWORD: changeme
           RAILS_ENV: test
         run: bundle exec rspec
+
+    - name: Publish code coverage
+      run: |
+        export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+        ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
