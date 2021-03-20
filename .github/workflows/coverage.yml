@@ -67,9 +67,3 @@ jobs:
           MYSQL_PASSWORD: changeme
           RAILS_ENV: test
         run: bundle exec rspec
-
-      - name: Send code coverage report
-        uses: aktions/codeclimate-test-reporter@v1
-        with:
-          codeclimate-test-reporter-id: ${{ secrets.CC_TEST_REPORTER_ID }}
-          command: after-build --coverage-input-type simplecov
