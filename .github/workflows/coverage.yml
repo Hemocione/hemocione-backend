@@ -56,6 +56,7 @@ jobs:
           MYSQL_PASSWORD: changeme
           DB_PORT: ${{ job.services.maria_db.ports[3306] }}
         run: |
+          cp config/database.ci.yml config/database.yml
           bundle exec rake db:setup
 
       - name: Run tests
