@@ -8,8 +8,8 @@ default: &default
 development:
   <<: *default
   database: hemocione
-  username: user
-  password: changeme
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: maria_db
   port: 3306
 
@@ -28,8 +28,8 @@ development:
 test:
   <<: *default
   database: hemocione_test
-  username: user
-  password: changeme
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: maria_db
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -52,6 +52,6 @@ test:
 #
 production:
   <<: *default
-  database: hemocione_production
-  username: hemocione
-  password: <%= ENV['HEMOCIONE_PRODUCTION_DATABASE_PASSWORD'] %>
+  database: hemocione
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>

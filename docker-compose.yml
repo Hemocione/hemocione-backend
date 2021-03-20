@@ -33,6 +33,11 @@ services:
     depends_on:
       - maria_db
       - redis
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: hemocione
+      MYSQL_USER: user
+      MYSQL_PASSWORD: changeme
     volumes:
       - "../hemocione-backend:/srv/backend/"
       - "rails_api-usrlocal:/usr/local/"
