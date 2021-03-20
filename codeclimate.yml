@@ -1,0 +1,77 @@
+version: "2"
+
+prepare:
+  fetch:
+    - url: "https://raw.githubusercontent.com/IcaliaLabs/guides/master/best_practices/code-analysis/rails.codeclimate.yml"
+      path: ".codeclimate.yml"
+
+    - url: "https://raw.githubusercontent.com/IcaliaLabs/guides/master/best_practices/code-analysis/.rubocop.yml"
+      path: ".rubocop.yml"
+    - url: "https://raw.githubusercontent.com/IcaliaLabs/guides/master/best_practices/code-analysis/.rubocop-rails.yml"
+      path: ".rubocop-rails.yml"
+
+    - url: "https://raw.githubusercontent.com/IcaliaLabs/guides/master/best_practices/code-analysis/reek-rails.yml"
+      path: ".reek.yml"
+
+checks:
+  argument-count:
+    config:
+      threshold: 4
+  complex-logic:
+    config:
+      threshold: 4
+  file-lines:
+    config:
+      threshold: 250
+  method-complexity:
+    config:
+      threshold: 5
+  method-count:
+    config:
+      threshold: 20
+  method-lines:
+    config:
+      threshold: 25
+  nested-control-flow:
+    config:
+      threshold: 4
+  return-statements:
+    config:
+      threshold: 4
+  similar-code:
+    config:
+      threshold: # language-specific defaults. an override will affect all languages.
+  identical-code:
+    config:
+      threshold: # language-specific defaults. an override will affect all languages.
+
+plugins:
+  rubocop:
+    enabled: true
+    channel: rubocop-0-74
+    config:
+      file: ".rubocop-rails.yml"
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  fixme:
+    enabled: true
+  reek:
+    enabled: true
+  shellcheck:
+    enabled: true
+
+exclude_patterns:
+  - ".rubocop*.yml"
+  - "spec/"
+  - "node_modules/"
+  - "!spec/support/helpers"
+  - "config/"
+  - "db/"
+  - "spec/"
+  - "vendor/"
+  - "coverage/"
+  - "bin/"
+  - ".idea/"
+  - "Guardfile"
