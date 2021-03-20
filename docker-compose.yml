@@ -51,6 +51,8 @@ services:
       MYSQL_DATABASE: hemocione
       MYSQL_USER: user
       MYSQL_PASSWORD: changeme
+      MONGO_USERNAME: root
+      MONGO_PASSWORD: rootpassword
     volumes:
       - "../hemocione-backend:/srv/backend/"
       - "rails_api-usrlocal:/usr/local/"

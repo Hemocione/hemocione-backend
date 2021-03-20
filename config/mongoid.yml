@@ -32,10 +32,10 @@ development:
         #     - use: web
 
         # The name of the user for authentication.
-        user: 'root'
+        user: <%= ENV['MONGO_USERNAME'] %>
 
         # The password of the user for authentication.
-        password: 'rootpassword'
+        password: <%= ENV['MONGO_PASSWORD'] %>
 
         # The user's database roles.
         # roles:

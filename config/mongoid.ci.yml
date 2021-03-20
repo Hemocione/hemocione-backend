@@ -1,0 +1,12 @@
+test:
+  clients:
+    default:
+      database: hemocione_mongo_test
+      hosts:
+        - mongo_db:27017
+      options:
+        user: <%= ENV['MONGO_USERNAME'] %>
+        password: <%= ENV['MONGO_PASSWORD'] %>
+        read:
+          mode: :primary
+        max_pool_size: 1

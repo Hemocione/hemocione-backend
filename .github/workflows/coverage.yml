@@ -56,9 +56,12 @@ jobs:
           MYSQL_DATABASE: hemocione
           MYSQL_USER: user
           MYSQL_PASSWORD: changeme
+          MONGO_USERNAME: root
+          MONGO_PASSWORD: rootpassword
           DB_PORT: ${{ job.services.maria_db.ports[3306] }}
         run: |
           cp config/database.ci.yml config/database.yml
+          cp config/mongoid.ci.yml config/mongoid.yml
           bundle exec rake db:setup
 
       - name: Run tests
@@ -67,5 +70,7 @@ jobs:
           MYSQL_DATABASE: hemocione
           MYSQL_USER: user
           MYSQL_PASSWORD: changeme
+          MONGO_USERNAME: root
+          MONGO_PASSWORD: rootpassword
           RAILS_ENV: test
         run: bundle exec rspec
