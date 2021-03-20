@@ -5,6 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+gem 'bson_ext', '~> 1.5.1'
+gem 'mongoid', '~> 7.2.1'
+
 gem 'bcrypt', '~> 3.1.7'
 gem 'mysql2', '~> 0.5.3'
 gem 'puma', '>= 4.3'

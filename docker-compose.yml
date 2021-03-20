@@ -24,6 +24,18 @@ services:
     networks:
       - hemocione_local
 
+  mongo_db:
+    image: "mongo:4.4.4"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - hemocione_local
+
   rails_api:
     build: .
     container_name: hemocione_api
@@ -33,6 +45,7 @@ services:
     depends_on:
       - maria_db
       - redis
+      - mongo_db
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: hemocione
@@ -49,6 +62,7 @@ volumes:
   hemocione_data:
   rails_api-usrlocal:
   redis-data:
+  mongodb_data:
 
 networks:
   hemocione_local:
