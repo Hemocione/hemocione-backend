@@ -10,14 +10,17 @@ services:
     networks:
       - hemocione_local
 
-  postgresql_db:
-    image: "postgres:11.4-alpine"
+  maria_db:
+    image: "mariadb:10.5"
     environment:
-      POSTGRES_PASSWORD: passwordnotsafe
+      MYSQL_ROOT_PASSWORD: changeme
+      MYSQL_DATABASE: hemocione
+      MYSQL_USER: user
+      MYSQL_PASSWORD: changeme
     ports:
-      - "5432:5432"
+      - "3306:3306"
     volumes:
-      - hemocione_data:/var/lib/postgresql/data
+      - hemocione_data:/var/lib/mysql
     networks:
       - hemocione_local
 
@@ -28,7 +31,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - postgresql_db
+      - maria_db
       - redis
     volumes:
       - "../hemocione-backend:/srv/backend/"
@@ -40,7 +43,6 @@ services:
 volumes:
   hemocione_data:
   rails_api-usrlocal:
-  react_web-usrlocal:
   redis-data:
 
 networks:

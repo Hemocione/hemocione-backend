@@ -12,10 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2020_02_17_210944) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "events", force: :cascade do |t|
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.datetime "date"
@@ -25,13 +22,13 @@ ActiveRecord::Schema.define(version: 2020_02_17_210944) do
     t.index ["institution_id"], name: "index_events_on_institution_id"
   end
 
-  create_table "institutions", force: :cascade do |t|
+  create_table "institutions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "subscriptions", force: :cascade do |t|
+  create_table "subscriptions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.boolean "donated", default: false
     t.bigint "user_id"
     t.bigint "event_id"
@@ -43,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_210944) do
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_210944) do
     t.datetime "birthdate"
     t.string "gender"
     t.string "phone"
-    t.json "tokens"
+    t.text "tokens", size: :long, collation: "utf8mb4_bin"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
