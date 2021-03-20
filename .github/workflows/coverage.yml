@@ -14,7 +14,8 @@ jobs:
           MYSQL_DATABASE: hemocione
           MYSQL_USER: user
           MYSQL_PASSWORD: changeme
-        ports: ["3306:3306"]
+        ports: 
+          - 3306:3306
         options: >-
           --health-cmd="mysqladmin ping"
           --health-interval=10s
@@ -48,7 +49,7 @@ jobs:
 
       - name: Setup test database
         env:
-          DATABASE_URL: mysql2://user:changeme@localhost:3306/hemocione
+          DATABASE_URL: mysql://user:changeme@localhost:3306/hemocione
           RAILS_ENV: test
           MYSQL_ROOT_PASSWORD: changeme
           MYSQL_DATABASE: hemocione
