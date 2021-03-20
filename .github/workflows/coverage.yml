@@ -3,7 +3,7 @@ on: push
 
 jobs:
   verify:
-    name: Update Test Coverage
+    name: RSPEC
     runs-on: ubuntu-latest
 
     services:
