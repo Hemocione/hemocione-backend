@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
   protected
 
     def configure_permitted_parameters
+    
       puts "configurando rubocop e testando codeclimate PR comments!"
       added_attrs = %i[email password password_confirmation blood_type gender
                        phone birthdate]

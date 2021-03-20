@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require:
   - rubocop-rspec
 
@@ -16,3 +18,8 @@ Documentation:
 Metrics/BlockLength:
   ExcludedMethods:
     ["describe", "context", "FactoryBot.define", "configure", "factory"]
+
+Layout/LineLength:
+  Max: 121
+  Exclude:
+    - 'Rakefile' 
