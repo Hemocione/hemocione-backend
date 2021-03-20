@@ -16,10 +16,10 @@ jobs:
           MYSQL_PASSWORD: changeme
         ports: ["3306:3306"]
         options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=10s
+          --health-retries=10
 
       redis:
         image: redis:5
