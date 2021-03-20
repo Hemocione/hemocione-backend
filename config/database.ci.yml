@@ -5,8 +5,8 @@ default: &default
 
 test:
   <<: *default
-  database: hemocione_test
-  username: user
-  password: changeme
+  database: <%= ENV['MYSQL_DATABASE'] %>
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: 127.0.0.1
   port: <%= ENV['DB_PORT'] %>
