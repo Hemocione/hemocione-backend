@@ -64,13 +64,8 @@ jobs:
           cp config/mongoid.ci.yml config/mongoid.yml
           bundle exec rake db:setup
 
-      - name: Setup Code Climate test-reporter
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-
-      - name: Unit test with Rspec test suite
+      - name: Code Climate Coverage Action
+        uses: paambaati/codeclimate-action@v2.7.5
         env:
           MYSQL_ROOT_PASSWORD: changeme
           MYSQL_DATABASE: hemocione
@@ -79,9 +74,6 @@ jobs:
           MONGO_USERNAME: root
           MONGO_PASSWORD: rootpassword
           RAILS_ENV: test
-        run: bundle exec rspec --format progress --profile
-
-      - name: Publish code coverage
-        run: |
-          export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
-          ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
+          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+        coverageCommand: bundle exec rspec
+        debug: true
