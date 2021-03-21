@@ -64,11 +64,11 @@ jobs:
           cp config/mongoid.ci.yml config/mongoid.yml
           bundle exec rake db:setup
 
-      - name: Prepare for test
+      - name: Setup Code Climate test-reporter
         run: |
           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
           chmod +x ./cc-test-reporter
-          GIT_BRANCH=$GITHUB_REF GIT_COMMIT_SHA=$GITHUB_SHA ./cc-test-reporter before-build
+          ./cc-test-reporter before-build
 
       - name: Unit test with Rspec test suite
         env:
@@ -81,7 +81,7 @@ jobs:
           RAILS_ENV: test
         run: bundle exec rspec --format progress --profile
 
-      - name: Report coverage
-        run: GIT_BRANCH=$GITHUB_HEAD_REF GIT_COMMIT_SHA=$(git rev-parse origin/$GITHUB_HEAD_REF) ./cc-test-reporter after-build -t simplecov --exit-code $?
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      - name: Publish code coverage
+        run: |
+          export GIT_BRANCH="${GITHUB_REF/refs\/heads\//}"
+          ./cc-test-reporter after-build -r ${{secrets.CC_TEST_REPORTER_ID}}
