@@ -76,6 +76,6 @@ jobs:
           RAILS_ENV: test
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
         with:
-          coverageCommand: RAILS_ENV=test bundle exec rspec --format progress
-          coverageLocations: coverage/.resultset.json:simplecov
+          coverageCommand: bundle exec rspec --format progress
+          coverageLocations: /home/runner/work/hemocione-backend/hemocione-backend/coverage/.resultset.json
           debug: true
