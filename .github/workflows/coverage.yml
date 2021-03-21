@@ -64,15 +64,15 @@ jobs:
           cp config/mongoid.ci.yml config/mongoid.yml
           bundle exec rake db:setup
 
-    - uses: paambaati/codeclimate-action@v2.2.4
-      env:
-        MYSQL_ROOT_PASSWORD: changeme
-        MYSQL_DATABASE: hemocione
-        MYSQL_USER: user
-        MYSQL_PASSWORD: changeme
-        MONGO_USERNAME: root
-        MONGO_PASSWORD: rootpassword
-        RAILS_ENV: test
-        CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-      with:
-        coverageCommand: bundle exec rspec
+      - uses: paambaati/codeclimate-action@v2.2.4
+        env:
+          MYSQL_ROOT_PASSWORD: changeme
+          MYSQL_DATABASE: hemocione
+          MYSQL_USER: user
+          MYSQL_PASSWORD: changeme
+          MONGO_USERNAME: root
+          MONGO_PASSWORD: rootpassword
+          RAILS_ENV: test
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: bundle exec rspec
