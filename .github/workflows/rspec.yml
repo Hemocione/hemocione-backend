@@ -1,12 +1,12 @@
 name: Rails
 on:
-  push:
+  pull_request:
     branches:
       - master
 
 jobs:
   verify:
-    name: Code Climate Coverage
+    name: Rspec
     runs-on: ubuntu-latest
 
     services:
@@ -67,8 +67,7 @@ jobs:
           cp config/mongoid.ci.yml config/mongoid.yml
           bundle exec rake db:setup
 
-      - name: Code Climate Coverage Action
-        uses: paambaati/codeclimate-action@v2.7.5
+      - name: Run tests
         env:
           MYSQL_ROOT_PASSWORD: changeme
           MYSQL_DATABASE: hemocione
@@ -77,8 +76,4 @@ jobs:
           MONGO_USERNAME: root
           MONGO_PASSWORD: rootpassword
           RAILS_ENV: test
-          CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
-        with:
-          coverageCommand: bundle exec rspec --format progress
-          coverageLocations: /home/runner/work/hemocione-backend/hemocione-backend/coverage/.resultset.json
-
+        run: bundle exec rspec
