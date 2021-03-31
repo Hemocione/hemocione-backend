@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails'
@@ -34,13 +36,5 @@ module HemocioneBackend
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.wrap_parameters = false
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any,
-                      expose: %w[access-token expiry token-type uid client],
-                      methods: %i[get post put delete patch options head]
-      end
-    end
   end
 end
