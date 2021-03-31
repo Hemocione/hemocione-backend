@@ -37,10 +37,9 @@ module HemocioneBackend
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*',
-          headers: :any,
-          expose: %w[access-token expiry token-type uid client],
-          methods: %i[get post put delete options]
+        resource '*', headers: :any,
+                      expose: %w[access-token expiry token-type uid client],
+                      methods: %i[get post put delete patch options head]
       end
     end
   end
