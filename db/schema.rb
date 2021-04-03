@@ -12,11 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_04_03_030635) do
 
-  create_table "denylists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.string "jti", null: false
-    t.datetime "exp", null: false
-  end
-
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "type"
