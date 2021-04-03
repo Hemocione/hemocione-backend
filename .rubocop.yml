@@ -19,7 +19,7 @@ Metrics/BlockLength:
   ExcludedMethods:
     ["describe", "context", "FactoryBot.define", "configure", "factory"]
 
-Layout/LineLength:
+Metrics/LineLength:
   Max: 121
   Exclude:
     - 'Rakefile'
