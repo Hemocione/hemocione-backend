@@ -1,27 +1,22 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
-  # For details on connection pooling, see Rails configuration guide
-  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  username: <%= ENV['MYSQL_USER'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 3306
 
 development:
   <<: *default
   database: hemocione
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: maria_db
-  port: 3306
+  
 
 test:
   <<: *default
   database: hemocione_test
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>
   host: maria_db
 
 production:
   <<: *default
   database: hemocione
-  username: <%= ENV['MYSQL_USER'] %>
-  password: <%= ENV['MYSQL_PASSWORD'] %>

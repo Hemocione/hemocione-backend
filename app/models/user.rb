@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   validates :password, presence: true, on: :create
   validates :document_id, :email, presence: true
-  validates :email, :document_id, uniqueness: true
+  validates :email, :document_id, uniqueness: { case_sensitive: false }
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :document_type, inclusion: { in: %w[CPF CNPJ] }
 

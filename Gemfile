@@ -26,7 +26,10 @@ group :development, :test do
   gem 'rubocop', '0.93.1'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
-  gem 'simplecov', '0.17'
+  gem 'shoulda-matchers', '~> 4'
+  gem 'database_cleaner', '~> 2'
+  gem 'factory_bot', '~> 6'
+  gem 'simplecov', '0.18.1'
 end
 
 group :development do
