@@ -6,9 +6,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.5'
 
 gem 'bson_ext', '~> 1.5.1'
-gem 'mongoid', '~> 7.2.1'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'cpf_cnpj'
 gem 'mysql2', '~> 0.5.3'
 gem 'puma', '>= 4.3'
 gem 'rails', '~> 6.0.3'
@@ -18,8 +18,7 @@ gem 'rack-attack', '~> 6.5.0'
 gem 'rack-cors', '~> 1.1.1'
 
 gem 'devise', '~> 4.7.1'
-gem 'devise_token_auth', '~> 1.1.3'
-gem 'omniauth', '~> 1.9.0'
+gem 'devise-jwt'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
