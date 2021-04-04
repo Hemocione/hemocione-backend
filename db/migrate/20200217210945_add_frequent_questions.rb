@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddFrequentQuestions < ActiveRecord::Migration[6.0]
   def up
     create_table(:frequent_questions) do |t|
