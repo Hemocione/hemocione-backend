@@ -23,7 +23,7 @@ gem 'devise-jwt'
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'database_cleaner', '~> 2'
-  gem 'factory_bot', '~> 6'
+  gem 'factory_bot_rails', '~> 6'
   gem 'faker'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'rubocop', '0.93.1'

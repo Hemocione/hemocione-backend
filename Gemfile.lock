@@ -94,6 +94,9 @@ GEM
     erubi (1.10.0)
     factory_bot (6.1.0)
       activesupport (>= 5.0.0)
+    factory_bot_rails (6.1.0)
+      factory_bot (~> 6.1.0)
+      railties (>= 5.0.0)
     faker (2.17.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.0)
@@ -253,7 +256,7 @@ DEPENDENCIES
   database_cleaner (~> 2)
   devise (~> 4.7.1)
   devise-jwt
-  factory_bot (~> 6)
+  factory_bot_rails (~> 6)
   faker
   listen (>= 3.0.5, < 3.2)
   mysql2 (~> 0.5.3)
