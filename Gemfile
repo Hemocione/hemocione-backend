@@ -22,6 +22,7 @@ gem 'devise-jwt'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'cpf_faker'
   gem 'database_cleaner', '~> 2'
   gem 'factory_bot_rails', '~> 6'
   gem 'faker'
