@@ -49,14 +49,16 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: hemocione
-      MYSQL_USER: user
+      MYSQL_USER: root
       MYSQL_PASSWORD: changeme
       MONGO_USERNAME: root
       MONGO_PASSWORD: rootpassword
+      DEVISE_JWT_SECRET_KEY: aae75c2b1e5edcd5ccfcd42e0b4049981cded5845bacfe4a74bf843bb18357181664d032e316f8e01e9f2aa5299fdcd4ca76755c014b2e4aed999586bf00bd67
     volumes:
       - "../hemocione-backend:/srv/backend/"
       - "rails_api-usrlocal:/usr/local/"
     tty: true
+    stdin_open: true
     networks:
       - hemocione_local
 

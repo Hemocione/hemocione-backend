@@ -20,6 +20,7 @@ require 'rails/test_unit/railtie'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+require 'cpf_cnpj'
 
 module HemocioneBackend
   class Application < Rails::Application
@@ -36,5 +37,6 @@ module HemocioneBackend
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.wrap_parameters = false
+    config.i18n.default_locale = :'pt-BR'
   end
 end

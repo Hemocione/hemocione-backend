@@ -1,16 +1,15 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::API
-  include DeviseTokenAuth::Concerns::SetUserByToken
+  include ActionController::MimeResponds
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+
+  respond_to :json
 
   protected
 
   def configure_permitted_parameters
-    added_attrs = %i[email password password_confirmation blood_type gender
-                     phone birthdate]
-    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
-    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[document_id document_type email name image blood_type birthdate gender phone])
   end
 end

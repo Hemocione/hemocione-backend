@@ -3,8 +3,8 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
     origins '*'
-    resource '*', headers: :any,
-                  expose: %w[access-token expiry token-type uid client],
+    resource '*', headers: %w[Authorization],
+                  expose: %w[Authorization],
                   methods: %i[get post put patch options head]
   end
 end

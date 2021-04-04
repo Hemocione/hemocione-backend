@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: 'Usuário'
+        other: 'Usuários'
+    attributes:
+      document_id: 'CPF/CNPJ'
+      document_type: 'Tipo de Document'
