@@ -46,6 +46,7 @@ services:
       - maria_db
       - redis
       - mongo_db
+      - inbucket
     environment:
       MYSQL_ROOT_PASSWORD: changeme
       MYSQL_DATABASE: hemocione
@@ -59,6 +60,14 @@ services:
       - "rails_api-usrlocal:/usr/local/"
     tty: true
     stdin_open: true
+    networks:
+      - hemocione_local
+
+  inbucket:
+    image: inbucket/inbucket:stable
+    ports:
+      - "9000:9000"
+      - "2500:2500"
     networks:
       - hemocione_local
 
