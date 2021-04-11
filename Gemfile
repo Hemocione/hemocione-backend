@@ -20,6 +20,10 @@ gem 'rack-cors', '~> 1.1.1'
 gem 'devise', '~> 4.7.1'
 gem 'devise-jwt'
 
+# Pagination
+gem 'kaminari'
+gem 'api-pagination'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'cpf_faker'

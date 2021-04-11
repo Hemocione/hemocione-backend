@@ -56,6 +56,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
+    api-pagination (4.8.2)
     ast (2.4.2)
     bcrypt (3.1.16)
     bson_ext (1.5.1)
@@ -109,6 +110,18 @@ GEM
       concurrent-ruby (~> 1.0)
     json (2.5.1)
     jwt (2.2.2)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -252,6 +265,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  api-pagination
   bcrypt (~> 3.1.7)
   bson_ext (~> 1.5.1)
   byebug
@@ -262,6 +276,7 @@ DEPENDENCIES
   devise-jwt
   factory_bot_rails (~> 6)
   faker
+  kaminari
   listen (>= 3.0.5, < 3.2)
   mysql2 (~> 0.5.3)
   puma (>= 4.3)

@@ -2,4 +2,6 @@
 
 class FrequentQuestion < ApplicationRecord
   has_many :ratings, as: :rated
+
+  validates :question, :answer, presence: true
 end
