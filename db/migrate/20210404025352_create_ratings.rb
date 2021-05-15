@@ -2,11 +2,11 @@
 
 class CreateRatings < ActiveRecord::Migration[6.0]
   def change
-    create_table :ratings do |t|
-      t.integer :rating
-      t.belongs_to :user
-      t.references :rated, polymorphic: true
-      t.timestamps
+    create_table :ratings do |table|
+      table.integer :rating
+      table.belongs_to :user
+      table.references :rated, polymorphic: true
+      table.timestamps
     end
   end
 end

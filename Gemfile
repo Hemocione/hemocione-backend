@@ -22,8 +22,8 @@ gem 'devise', '~> 4.7.1'
 gem 'devise-jwt'
 
 # Pagination
-gem 'kaminari'
 gem 'api-pagination'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rubocop', '0.93.1'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+
   gem 'shoulda-matchers', '~> 4'
   gem 'simplecov', '0.18.1'
 end

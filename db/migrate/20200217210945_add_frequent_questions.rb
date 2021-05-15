@@ -2,10 +2,10 @@
 
 class AddFrequentQuestions < ActiveRecord::Migration[6.0]
   def up
-    create_table(:frequent_questions) do |t|
-      t.text :question
-      t.text :answer
-      t.timestamps
+    create_table(:frequent_questions) do |table|
+      table.text :question
+      table.text :answer
+      table.timestamps
     end
   end
 
