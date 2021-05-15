@@ -9,7 +9,7 @@ class FrequentQuestionsController < ApplicationController
   end
 
   def show
-    frequent_questions = paginate Faq::ReadService.call(params.permit(:id))
+    frequent_questions = Faq::ReadService.call(params.permit(:id))
     return head :not_found if frequent_questions.blank?
 
     render json: serialized_frequent_questions(frequent_questions).first
