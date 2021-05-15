@@ -12,6 +12,7 @@ gem 'cpf_cnpj'
 gem 'mysql2', '~> 0.5.3'
 gem 'puma', '>= 4.3'
 gem 'rails', '~> 6.0.3'
+gem 'rails-healthcheck', '~> 1.2.0'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-attack', '~> 6.5.0'
