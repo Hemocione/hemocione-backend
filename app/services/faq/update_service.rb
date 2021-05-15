@@ -12,7 +12,7 @@ module Faq
     def execute
       return if faq.blank?
 
-      faq.update_attributes!(params)
+      faq.update!(params)
       faq.reload
     end
   end
