@@ -79,6 +79,7 @@ jobs:
           MONGO_PASSWORD: rootpassword
           RAILS_ENV: test
           CC_TEST_REPORTER_ID: ${{secrets.CC_TEST_REPORTER_ID}}
+          DEVISE_JWT_SECRET_KEY: ${{ secrets.DEVISE_JWT_SECRET_KEY }}
         with:
           coverageCommand: RAILS_ENV=test bundle exec rspec --format progress
           coverageLocations: coverage/.resultset.json:simplecov

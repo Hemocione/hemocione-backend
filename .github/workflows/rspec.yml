@@ -77,4 +77,5 @@ jobs:
           MONGO_USERNAME: root
           MONGO_PASSWORD: rootpassword
           RAILS_ENV: test
+          DEVISE_JWT_SECRET_KEY: ${{ secrets.DEVISE_JWT_SECRET_KEY }}
         run: bundle exec rspec
