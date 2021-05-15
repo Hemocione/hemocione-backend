@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe FrequentQuestionsController, type: :controller do
+  let(:user) { FactoryBot.create :user }
+
+  before { api_sign_in(user) }
+
   describe '#index' do
     let(:faqs) { FactoryBot.create_list :frequent_question, 3 }
     let(:expected_response) { JSON.parse(response.body).map { |faq| faq['id'] } }
@@ -36,42 +40,27 @@ RSpec.describe FrequentQuestionsController, type: :controller do
   end
 
   describe '#create' do
-    let(:user) { FactoryBot.create :user }
     let(:params) { { frequent_question: FactoryBot.attributes_for(:frequent_question) } }
 
-    before do
-      user
-      api_sign_in(user)
-      post :create, params: params
-    end
+    before { post :create, params: params }
 
     it { expect(response).to have_http_status :created }
   end
 
   describe '#update' do
-    let(:user) { FactoryBot.create :user }
     let(:faq) { FactoryBot.create :frequent_question }
     let(:params) { { id: faq.id, frequent_question: { question: 'abc?' } } }
 
-    before do
-      user
-      api_sign_in(user)
-      put :update, params: params
-    end
+    before { put :update, params: params }
 
     it { expect(response).to have_http_status :ok }
     it { expect(JSON.parse(response.body)['question']).to eq('abc?') }
   end
 
   describe '#destroy' do
-    let(:user) { FactoryBot.create :user }
     let(:faq) { FactoryBot.create :frequent_question }
 
-    before do
-      user
-      api_sign_in(user)
-      delete :destroy, params: { id: faq.id }
-    end
+    before { delete :destroy, params: { id: faq.id } }
 
     it { expect(response).to have_http_status :no_content }
     it { expect { faq.reload }.to raise_error(ActiveRecord::RecordNotFound) }
