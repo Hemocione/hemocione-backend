@@ -58,7 +58,7 @@ plugins:
   fixme:
     enabled: true
   reek:
-    enabled: true
+    enabled: false
   shellcheck:
     enabled: true
 
