@@ -40,6 +40,7 @@ RSpec.describe FrequentQuestionsController, type: :controller do
     let(:params) { { frequent_question: FactoryBot.attributes_for(:frequent_question) } }
 
     before do
+      user
       api_sign_in(user)
       post :create, params: params
     end
@@ -53,6 +54,7 @@ RSpec.describe FrequentQuestionsController, type: :controller do
     let(:params) { { id: faq.id, frequent_question: { question: 'abc?' } } }
 
     before do
+      user
       api_sign_in(user)
       put :update, params: params
     end
@@ -66,6 +68,7 @@ RSpec.describe FrequentQuestionsController, type: :controller do
     let(:faq) { FactoryBot.create :frequent_question }
 
     before do
+      user
       api_sign_in(user)
       delete :destroy, params: { id: faq.id }
     end
