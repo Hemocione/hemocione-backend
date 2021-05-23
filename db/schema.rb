@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2021_04_04_034352) do
     t.string "document_id"
     t.string "document_type"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["document_id"], name: "index_users_on_document_id"
+    t.index ["document_id"], name: "index_users_on_document_id", unique: true
     t.index ["document_type"], name: "index_users_on_document_type"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

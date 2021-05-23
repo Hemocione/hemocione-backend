@@ -1,5 +1,42 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body style="min-width: 100%;
+               min-height: 100%;
+               text-align: center;
+               margin: 0;
+               padding: 0;
+               font-family: Arial;">
+    <table style="width: 80%;
+                  height: 80%;
+                  border-radius: 20px;
+                  background-color: #E3E3E3; 
+                  margin: 10%;
+                  padding: 30px;">
+      <tr><td>
+        <img src="https://cdn.discordapp.com/attachments/757012940804194367/845809813949775882/logo.png"
+             style="width: 50%;
+                    height: auto"/>
+      </td></tr>
+      <tr><td>
+        <p>Seja bem vindo ao Hemocione, <%= @user.name %>! Muito bom ter você aqui :)</p>
+      </td></tr>
+      <tr><td>
+        <a href=<%="https://d.hemocione.com.br/email_confirmation?confirmation_url=" + confirmation_url(@resource, confirmation_token: @token)%>>
+          <button style="text-decoration: none;
+                         background-color: #CD1419;
+                         padding: 15px;
+                         color: #FFFFFF;
+                         border-radius: 15px;
+                         border-color: #CD1419;
+                         cursor: pointer">
+            Clique aqui e confirme seu email agora!
+          </button>
+        </a>
+      <td></tr>
+    </table>
+    <p>@ Hemocione 2021</p>
+  </body>
+</html>
