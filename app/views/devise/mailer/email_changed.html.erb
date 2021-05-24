@@ -1,7 +1,32 @@
-<p>Hello <%= @email %>!</p>
-
-<% if @resource.try(:unconfirmed_email?) %>
-  <p>We're contacting you to notify you that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
-<% else %>
-  <p>We're contacting you to notify you that your email has been changed to <%= @resource.email %>.</p>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  </head>
+  <body style="min-width: 100%;
+               min-height: 100%;
+               text-align: center;
+               margin: 0;
+               padding: 0;
+               font-family: Arial;">
+    <table style="width: 80%;
+                  height: 80%;
+                  border-radius: 20px;
+                  background-color: #E3E3E3; 
+                  margin: 10%;
+                  padding: 30px;">
+      <tr><td>
+        <img src="https://cdn.discordapp.com/attachments/757012940804194367/845809813949775882/logo.png"
+             style="width: 50%;
+                    height: auto"/>
+      </td></tr>
+      <tr><td>
+        <p>Olá, <%= @user.name %>!</p>
+      </td></tr>
+      <tr><td>
+        <p>Estamos te contatando para notificar que seu email foi alterado para <%= @resource.try(:unconfirmed_email) ? @resource.unconfirmed_email : @resource.email %>.</p>
+      </td></tr>
+    </table>
+    <p>@ Hemocione 2021</p>
+  </body>
+</html>
