@@ -21,15 +21,22 @@ gem 'rack-cors', '~> 1.1.1'
 gem 'devise', '~> 4.7.1'
 gem 'devise-jwt'
 
+# Pagination
+gem 'api-pagination'
+gem 'kaminari'
+
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'cpf_faker'
+  gem 'database_cleaner', '~> 2'
+  gem 'factory_bot_rails', '~> 6'
+  gem 'faker'
   gem 'rspec-rails', '~> 4.0.2'
   gem 'rubocop', '0.93.1'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+
   gem 'shoulda-matchers', '~> 4'
-  gem 'database_cleaner', '~> 2'
-  gem 'factory_bot', '~> 6'
   gem 'simplecov', '0.17'
 end
 
